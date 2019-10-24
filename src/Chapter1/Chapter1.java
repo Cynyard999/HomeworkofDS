@@ -1,4 +1,4 @@
-
+package Chapter1;
 
 
 public class Chapter1 {
@@ -125,6 +125,10 @@ public class Chapter1 {
         else return (array[lower]==array[higher])&palindromes(array,lower+1,higher-1);
     }//Ex5 判断是否为回文
 
+
+/**
+ * 以下为上机作业
+ */
     public void permution(int n,int r){
         permution(n,r,new int[r],0);
     }//上机作业1，递归打印出前n个正整数取r个正整数的所有的排列

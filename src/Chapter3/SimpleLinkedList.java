@@ -10,6 +10,9 @@ public class SimpleLinkedList {
         int coe;
         int exp;
         Node next;
+        boolean hasNext(){
+            return next!=null;
+        }
         Node(Object a){
             this(a,null);
         }
