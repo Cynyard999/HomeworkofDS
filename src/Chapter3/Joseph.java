@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Joseph {
     public static void main(String [] args){
         System.out.println(new Joseph().solution1(14,3));
-        System.out.println(new Joseph().solution2(14,3));
+        //System.out.println(new Joseph().solution2(14,3));
     }
 
-    public int solution1(int n, int m){
+    public int solution1(int n, int m){//链表
         CircularLinkedList circularLinkedList = new CircularLinkedList();
         for (int i=1;i<=n;i++){
             circularLinkedList.add(i);
@@ -18,7 +18,7 @@ public class Joseph {
         CircularLinkedList.Node tail = null;
         for (int i=1;i<n;i++){//淘汰n-1个人
             for (int j=1;j<=m-1;j++){
-                previous = previous.next;
+                previous = previous.next;//将被淘汰的人的前一个人
             }
             if (i==1){
                 head = previous.next;
@@ -32,7 +32,7 @@ public class Joseph {
         }
         return (Integer) previous.element;
     }
-    public int solution2(int n,int m){
+    public int solution2(int n,int m){//数组实现
         ArrayList<Boolean> list1 = new ArrayList<>();
         for (int i=1;i<=n;i++){
             list1.add(true);
@@ -49,7 +49,7 @@ public class Joseph {
                     count = 0;
                 }
             }
-            i++;//就算left=1后，得到的i也会加
+            i++;//之前指向已经被淘汰的人，淘汰过后，i++
             if (i==n){
                 i=0;
             }

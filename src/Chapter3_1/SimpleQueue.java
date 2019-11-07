@@ -3,13 +3,13 @@ package Chapter3_1;
 public class SimpleQueue {//数组实现
     private Object [] array;
     static final int MAX_CAPACITY = 100;
-    private SimpleQueue(int capacity){
+    public SimpleQueue(int capacity){
         array = new Object[capacity] ;
         front = 0;
         currentSize = 0;
         back = -1;
     }
-    private SimpleQueue(){
+    public SimpleQueue(){
         this(MAX_CAPACITY);
     }
     int front;

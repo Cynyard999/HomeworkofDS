@@ -4,9 +4,9 @@ package Chapter1;
 public class Chapter1 {
     public static void main(String[] args) {
         Chapter1 chapter1 = new Chapter1();
-        //chapter1.hanoid(3);
+        chapter1.hanoid(4);
         //float x = chapter1.average(new int[]{1,2,3,4,5,32,12});
-        System.out.println(chapter1.palindromes("ab cbA","sentence"));
+        //chapter1.permution(5,2);
     }
 
     public static int method1(int i){
@@ -131,7 +131,8 @@ public class Chapter1 {
  */
     public void permution(int n,int r){
         permution(n,r,new int[r],0);
-    }//上机作业1，递归打印出前n个正整数取r个正整数的所有的排列
+    }//上机作业1，找出从自然数1-n中任取r个数的所有组合
+
     public void permution(int n,int r,int[] a,int m){
         if (r==0){
             for (int i:a) {
@@ -141,7 +142,7 @@ public class Chapter1 {
         }
         else
             for (int i=n;i>=r;i--){
-                a[m]=i;
+                a[m]=i;//固定index为m的数，数组后面的数均小于这个数，可以固定（n-r+1）个数
                 permution(i-1,r-1,a,m+1);
             }
     }//上机作业1
@@ -158,9 +159,9 @@ public class Chapter1 {
             System.out.println("Move from "+from+" to "+target);
             return;
         }
-        move(n-1,from,target,medium);
-        System.out.println("Move from "+from+" to "+target);
-        move(n-1,medium,from,target);
+        move(n-1,from,target,medium);//把n-1个move到过渡
+        System.out.println("Move from "+from+" to "+target);//把最后一个move到target
+        move(n-1,medium,from,target);//把n-1个从过渡move到target
     }//上机作业2
 }
 

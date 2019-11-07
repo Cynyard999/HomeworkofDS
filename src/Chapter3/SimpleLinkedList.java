@@ -1,9 +1,8 @@
 package Chapter3;
 
 
-import javafx.beans.binding.ObjectExpression;
-
 public class SimpleLinkedList {
+
     Node header;
     class Node{
         Object element;
@@ -19,6 +18,11 @@ public class SimpleLinkedList {
         Node(Object a,Node next){
             element = a;
             this.next = next;
+        }
+        Node(int a, int b){
+            coe = a;
+            exp = b;
+            this.next = null;
         }
     }
     public static void main(String[] args){

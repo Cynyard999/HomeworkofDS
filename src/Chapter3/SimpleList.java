@@ -7,20 +7,8 @@ import java.util.List;
 
 public class SimpleList {
     public static void main(String[] args){
-        SimpleList simpleList = new SimpleList();
-        ArrayList<Integer> arrayList1 = new ArrayList();
-        ArrayList<Integer> arrayList2 = new ArrayList();
-        arrayList1.add(10);
-        arrayList1.add(20);
-        arrayList1.add(30);
-        arrayList1.add(40);
-        arrayList2.add(1);
-        arrayList2.add(2);
-        arrayList2.add(9);
-        arrayList2.addAll(arrayList1);
-        System.out.println(arrayList1);
-        System.out.println(arrayList2);
-        System.out.println(simpleList.Union(arrayList1,arrayList2));
+        SimpleLinkedList simpleLinkedList1 = new SimpleLinkedList();
+        SimpleLinkedList simpleLinkedList2 = new SimpleLinkedList();
     }
     public List intersection(List<Integer> a, List<Integer> b) {
         List<Integer> c = new ArrayList<>();
