@@ -12,8 +12,7 @@ public class Calculator {
         symbols = new SimpleStack<>();
         symbols.push("#");
     }
-    public void parenthesisMatching(String str){//匹配字符
-    }
+
     //divide方法用来分隔字符串为数字和符号
     private String[] divide(String string){
         String[] temp_components = string.replace(" ","").split("");

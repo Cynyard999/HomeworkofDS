@@ -17,7 +17,7 @@ public class SimpleStack<T> {
         }
     }
     Node stackTop;
-    SimpleStack(){
+    public SimpleStack(){
         stackTop = null;
     }
     public void push(T o){
