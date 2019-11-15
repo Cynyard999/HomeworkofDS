@@ -12,8 +12,8 @@ public class SimpleBin_Tree<T> {
         T element;
         int level;
         int tag;
-        public Node(T data){
-            this.element = data;
+        public Node(T element){
+            this.element = element;
         }
         public Node(){
             this(null);
@@ -50,7 +50,7 @@ public class SimpleBin_Tree<T> {
     }
 
     //按层次建造一棵树，栈结构
-    public void LevelcreateTree(T[] ts){//层次遍历构建树,并且标记了每个节点的level
+    public void LevelcreateTree(T[] ts){//层次遍历构建树
         clearTree();
         if (ts.length<=1){
             System.out.println("Wrong input");
