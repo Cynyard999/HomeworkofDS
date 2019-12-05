@@ -3,7 +3,7 @@ package Chapter4_1;
 import Chapter4_0.SimpleBin_Tree;
 
 public class BST<T extends Comparable<? super T>> {
-    private node root;
+    protected node root;
 
     class node {//indexed binary search tree
         T key;
@@ -36,7 +36,7 @@ public class BST<T extends Comparable<? super T>> {
     //插入一个数，也可以写有返回值的情况，返回的就是插入的节点的指针
     public void add(T key) {
         if (isEmpty()) {
-            setRoot(key);
+            setRoot( key);
         } else {
             add(key, root);
         }
