@@ -6,26 +6,26 @@ import Chapter3_1.SimpleStack;
 public class SimpleBin_Tree<T> {
     private Node root;
     class Node <T>{
-        Node left;
-        Node right;
+        public Node left;
+        public Node right;
         T element;
         int level;
-        public Node(T element){
+        Node(T element){
             this.element = element;
         }
-        public Node(){
+        Node(){
             this(null);
         }
-        public void setElement(T element) {
+        void setElement(T element) {
             this.element = element;
         }
-        public T getElement() {
+        T getElement() {
             return element;
         }
-        public int getLevel() {
+        int getLevel() {
             return level;
         }
-        public void setLevel(int i){
+        void setLevel(int i){
             this.level = i;
         }
     }
@@ -243,7 +243,7 @@ public class SimpleBin_Tree<T> {
         getPostorder2(this.root);
     }
     private void getPostorder2(Node root){
-
+        //TODO:
     }
 
     //递归计算叶节点的个数
