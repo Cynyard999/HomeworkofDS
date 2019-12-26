@@ -20,7 +20,7 @@ public class Calculator {
         for (int i=0;i<temp_components.length;i++){
             if (temp_components[i].matches("[0-9]")){
                 StringBuilder numberCombiner = new StringBuilder();
-                while (i<temp_components.length&&temp_components[i].matches("[0-9]")){
+                while (i<temp_components.length&&(temp_components[i].matches("[0-9]")||temp_components[i].matches("\\."))){
                     numberCombiner.append(temp_components[i]);
                     i++;
                 }//跳出循环的时候i已经指向非数字符号
@@ -31,6 +31,7 @@ public class Calculator {
         }
         return (String[])components.toArray(new String[0]);
     }
+
     public String ExpressionCalculation(String expression){
         float sum = 0;
         if (expression==null){
@@ -38,14 +39,13 @@ public class Calculator {
         }
         String[] components = divide(expression);
         for (String i: components){
-            if (!(i.matches("\\d+")||i.matches("[()*/+-]"))){
-                System.out.println("Wrong Input");
+            if (!(i.matches("\\d+")||i.matches("[()*/+-]")||i.matches("^[0-9]+(.[0-9]{1,3})?"))){
+                System.out.println("Wrong Input: "+i);
                 return null;
             }
             if (i.matches("[*/+-]")){
-
                 String top = symbols.getTop();//栈顶元素都是权值最大的符号（除了括号）
-                //栈顶元素小于读到的操作符，那么压栈,或者栈顶元素为"("
+                //栈顶元素小于读到的操作符，那么压栈,或者当前栈顶元素为"("
                 if (Symbols.getValue(top)<Symbols.getValue(i)||top.equals("(")){
                     symbols.push(i);
                 }
@@ -53,7 +53,7 @@ public class Calculator {
                 else {
                     String currenttop = top;
                     while (Symbols.getValue(currenttop)>=Symbols.getValue(i)){
-                        System.out.print(currenttop);
+                        System.out.print(currenttop+" ");
                         compute();
                         symbols.pop();
                         currenttop = symbols.getTop();
@@ -64,8 +64,8 @@ public class Calculator {
                     symbols.push(i);
                 }
             }
-            else if (i.matches("\\d+")){//如果匹配的是数字
-                System.out.print(i);
+            else if (i.matches("\\d+")||i.matches("^[0-9]+(.[0-9]{1,3})?$")){//如果匹配的是数字
+                System.out.print(i+" ");
                 operators.push(i);
             }
             else if (i.matches("[(]")){
@@ -76,7 +76,7 @@ public class Calculator {
                 while (!currentTop.equals("(")){
                     compute();
                     symbols.pop();
-                    System.out.print(currentTop);
+                    System.out.print(currentTop+" ");
                     currentTop = symbols.getTop();
                 }
                 symbols.pop();//栈顶到左括号的时候，直接弹出
@@ -85,10 +85,10 @@ public class Calculator {
         //将剩下的操作数以及操作符进行运算，算完一个弹出一个，并且输出
         while (!symbols.getTop().equals("#")){
             compute();
-            System.out.print(symbols.pop());
+            System.out.print(symbols.pop()+" ");
         }
         System.out.println();
-        return String.valueOf(operators.pop());
+        return decimalFormat.format(Float.valueOf(operators.pop()));
     }
     private DecimalFormat decimalFormat = new DecimalFormat("0.00");//定义最后的值的小数位数，因为除法可能会带来小数
     private void compute(){//取栈顶进行运算 a?b,不是取出
