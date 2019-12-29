@@ -10,11 +10,10 @@ public class Main {
         digraph.addVertex(5);
         digraph.addEdge(1,2);
         digraph.addEdge(2,3);
-        digraph.addEdge(3,4);
+        digraph.addEdge(3,5);
+        digraph.addEdge(2,4);
         digraph.addEdge(4,5);
         digraph.addEdge(5,1);
-        digraph.addEdge(5,2);
-        digraph.addEdge(5,3);
         digraph.findCircle();
     }
 

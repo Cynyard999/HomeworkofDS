@@ -2,8 +2,9 @@ package Chapter3_1;
 
 public class Main {
     public static void main(String []args) {
-        String a = "1 + 2*3 + (4 * 5 + 6) / 7";
+        String a = "12 * 4 +34/5-(56+67*4)+32";
         Calculator calculator = new Calculator();
-        YangHui.print(10);
+        System.out.println(calculator.ExpressionCalculation(a));
+        //YangHui.print(10);
     }
 }

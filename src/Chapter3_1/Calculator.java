@@ -44,17 +44,17 @@ public class Calculator {
                 return null;
             }
             if (i.matches("[*/+-]")){
-                String top = symbols.getTop();//栈顶元素都是权值最大的符号（除了括号）
+                String top = symbols.getTop();//栈顶元素都是当前栈中权值最大的符号（除了括号）
                 //栈顶元素小于读到的操作符，那么压栈,或者当前栈顶元素为"("
                 if (Symbols.getValue(top)<Symbols.getValue(i)||top.equals("(")){
-                    symbols.push(i);
+                    symbols.push(i);//左括号只有遇到右括号才会弹出去
                 }
                 //栈顶元素大于等于读到的操作符，那么弹出一直栈顶元素并且输出
                 else {
                     String currenttop = top;
                     while (Symbols.getValue(currenttop)>=Symbols.getValue(i)){
                         System.out.print(currenttop+" ");
-                        compute();
+                        compute();//每打印出一个+-*/，就把这个时候数字栈取两个元素来计算，再压入
                         symbols.pop();
                         currenttop = symbols.getTop();
                         if (currenttop.equals("(")){//如果读到了"(",只有遇到")"的时候才会弹出

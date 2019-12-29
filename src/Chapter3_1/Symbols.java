@@ -5,7 +5,7 @@ public enum Symbols {
     PLUS(1,"+"),
     MINUS(1,"-"),
     MUL(2,"*"),
-    DIVI(2,"/"),
+    DIV(2,"/"),
     LPAREN(3,"("),
     RPAREN(3,")");
     private int value;
@@ -18,7 +18,7 @@ public enum Symbols {
             case "+":return PLUS.value;
             case "-":return MINUS.value;
             case "*":return MUL.value;
-            case "/":return DIVI.value;
+            case "/":return DIV.value;
             case "#":return POUND.value;
             default:return 3;
         }
